@@ -1,0 +1,308 @@
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Panel principal que cubre toda la pantalla */
+.panel {
+    background-image: url('../assets/images/R.jpeg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Asegura que el panel cubra toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita que aparezca el scroll */
+}
+
+/* Estilos para el header con máxima transparencia */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0);  /* Fondo completamente transparente */
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);  /* Línea sutil debajo */
+}
+
+/* Estilo para el logo */
+header .logo img {
+    width: 100px;
+}
+
+
+
+/* Estilo de los botones del menú */
+.menu button {
+    background-color: transparent;  /* Fondo transparente */
+    border: 2px solid black;  /* Borde negro */
+    color: white;  /* Texto blanco */
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;  /* Botones ocupan todo el ancho disponible */
+    min-width: 150px;  /* Ancho mínimo para que no se deformen */
+    text-align: center;
+}
+
+/* Botones al pasar el ratón */
+.menu button:hover {
+    background-color: rgba(255, 255, 255, 0.3);  /* Fondo con un toque de blanco */
+    transform: scale(1.05);
+}
+
+
+
+/* Botón de "Inicio de Sesión" con color destacado */
+#login-btn {
+    background-color: #003366;  /* Azul marino */
+    color: white;  /* Texto blanco */
+    border: none;
+}
+
+#login-btn:hover {
+    background-color: #007bff;  /* Fondo azul cuando se pasa el ratón */
+    color: white;  /* Texto blanco */
+}
+
+/* Estilo para el main */
+main {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centrado vertical */
+    align-items: center;  /* Centrado horizontal */
+    height: 100%;  /* Mantiene el contenido centrado dentro del panel */
+}
+
+main h1 {
+    font-size: 4rem;  /* Tamaño grande para el título */
+    font-family: 'Dancing Script', cursive;  /* Nueva tipografía estilizada */
+    font-weight: 700;
+    letter-spacing: 3px;  /* Espaciado entre letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);  /* Sombra sutil */
+    margin-bottom: 20px;  /* Espacio debajo del título */
+}
+
+main h2, main h3 {
+    font-family: 'Roboto', sans-serif;  /* Fuente más suave */
+    color: white;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+main h2 {
+    font-size: 2rem;  /* Tamaño moderado para h2 */
+    letter-spacing: 1px;
+}
+
+main h3 {
+    font-size: 1.5rem;  /* Tamaño más pequeño para h3 */
+    font-weight: 300;  /* Ligeramente más delgada */
+    letter-spacing: 0.5px;
+}
+
+/* Estilo para el párrafo debajo del título */
+main p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+/* Estilo para el footer */
+footer {
+    background-color: #737373;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+/* Panel con fondo blanco para la sección */
+.conoce-nuestro-sitio {
+    background-color: white;
+    padding: 40px 20px;
+    font-family: 'Montserrat', sans-serif;  /* Fuente Montserrat */
+    margin: 0 10%;  /* Márgenes en los lados (10% a cada lado) */
+}
+
+/* Título de la sección */
+.conoce-nuestro-sitio h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Contenedor de las tarjetas */
+.informacion {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;  /* Para hacer que las tarjetas se ajusten en pantallas más pequeñas */
+}
+
+.card {
+    background-color: #f5f5f5;
+    width: 48%;  /* Dos tarjetas por fila */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    margin-bottom: 20px;  /* Espacio entre tarjetas */
+}
+
+/* Efecto al pasar el ratón por encima */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen dentro de las tarjetas */
+.card img {
+    width: 100%;  /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 250px;  /* Tamaño fijo para las imágenes */
+    object-fit: cover;  /* Mantiene la proporción de la imagen sin deformarse */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Título dentro de la tarjeta */
+.card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Párrafo dentro de la tarjeta */
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Estilos para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .card {
+        width: 100%;  /* Las tarjetas ocupan todo el ancho en pantallas pequeñas */
+    }
+
+    /* Margen de la tarjeta */
+    .card + .card {
+        margin-top: 20px; /* Espacio entre tarjetas cuando se apilan */
+    }
+}
+
+
+
+/* Estilos para el modal */
+.swal2-popup {
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;  /* Mantener la misma fuente */
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de la tabla */
+.swal2-popup table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.swal2-popup th, .swal2-popup td {
+    padding: 10px;
+    border: 1px solid #ddd;  /* Bordes finos */
+    font-size: 14px;
+}
+
+/* Fondo del encabezado */
+.swal2-popup th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo de las filas alternadas */
+.swal2-popup tr:nth-child(even) {
+    background-color: #f9f9f9;  /* Fila de color suave */
+}
+
+/* Estilo de las celdas de la tabla */
+.swal2-popup td {
+    color: #555;
+}
+
+/* Estilo cuando pasas el ratón sobre una fila */
+.swal2-popup tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Estilo para el menú de hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: space-between;
+    height: 25px;
+    width: 30px;
+    margin-left: auto;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilo para el menú en pantallas grandes */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu button {
+    margin-left: 10px;
+}
+
+/* Estilos para el menú en dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .menu button {
+        margin: 10px 0;
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mostrar el menú cuando se active */
+    .menu.active {
+        display: flex;
+    }
+}

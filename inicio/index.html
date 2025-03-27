@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <title>Pantalla de Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Panel principal con fondo -->
+    <div class="panel">
+        <header>
+            <div class="logo">
+                <img src="../assets/images/OIP.png" alt="Logo">
+            </div>
+            <div class="menu">
+                <button id="acerca-btn" onclick="mostrarAcercaDe()">Acerca de</button>
+                <button id="visitar-btn" onclick="window.location.href='cliente/index.html'">Visitar</button>
+                <button id="login-btn" class="login-btn" onclick="mostrarLogin()">Inicio de Sesión</button>
+            </div>
+            <!-- Menú hamburguesa -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+        
+
+        <main>
+            <h1>TurisAR</h1>
+            <h2>Descubre el mundo con realidad aumentada</h2>
+            <h3>IA1 G16</h3>
+        </main>
+    </div>
+
+    <section class="conoce-nuestro-sitio">
+        <div class="panel-blanco">
+            <h1>Conoce Nuestro Sitio</h1>
+        </div>
+        
+        <div class="informacion">
+            <!-- Primer panel de tarjeta sobre Realidad Aumentada -->
+            <div class="card">
+                <img src="../assets/images/realidad-aumentada.jpg" alt="Realidad Aumentada">
+                <h2>Realidad Aumentada</h2>
+                <p>Explora nuevas formas de interactuar con nuestro entorno mediante la tecnología de realidad aumentada. Vive una experiencia única.</p>
+            </div>
+    
+            <!-- Segundo panel de tarjeta sobre Filtros -->
+            <div class="card">
+                <img src="../assets/images/filtros.jpg" alt="Filtros">
+                <h2>Filtros</h2>
+                <p>Utiliza filtros avanzados para personalizar tu experiencia visual y hacerla aún más interesante. Prueba nuestras opciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
