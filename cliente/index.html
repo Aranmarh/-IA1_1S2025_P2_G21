@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cliente</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="panel">
+        <header>
+            <div class="logo">
+                <img src="../assets/images/OIP.png" alt="Logo">
+            </div>
+            <div class="menu">
+                <button id="home-btn" onclick="window.location.href='../inicio/index.html'">Home</button>
+            </div>
+        </header>
+
+        
+
+        <!-- Carrusel de tarjetas (solo una tarjeta visible a la vez) -->
+        <div class="card-container">
+            <div class="arrow arrow-left" onclick="moveCarousel('prev')">&#9664;</div>  <!-- Flecha izquierda -->
+            <div class="card-wrapper" id="card-wrapper">
+                <div class="card">
+                    <img src="../assets/images/realidad-aumentada.jpg" alt="Realidad Aumentada">
+                    <h2>Realidad Aumentada</h2>
+                    <p>Explora una nueva forma de interactuar con el mundo.</p>
+                </div>
+                <div class="card">
+                    <img src="../assets/images/filtros.jpg" alt="Filtros">
+                    <h2>Filtros</h2>
+                    <p>Usa filtros para mejorar tu experiencia.</p>
+                </div>
+            </div>
+            <div class="arrow arrow-right" onclick="moveCarousel('next')">&#9654;</div>  <!-- Flecha derecha -->
+        </div>
+
+        <div class="description">
+            <h3>Selecciona tu opción</h3>
+        </div>
+    </div>
+
+  
+
+    <script>
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.card');
+        const cardWrapper = document.getElementById('card-wrapper');
+
+        function moveCarousel(direction) {
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % cards.length;
+            } else {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            }
+
+            cardWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>

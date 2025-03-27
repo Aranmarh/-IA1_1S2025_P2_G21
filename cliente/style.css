@@ -1,0 +1,158 @@
+/* Estructura de panel principal similar a la de inicio */
+.panel {
+    background-image: url('../assets/images/A.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centrado vertical */
+    align-items: center;  /* Centrado horizontal */
+}
+
+/* Header con el logo y el botón Home */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+header .logo img {
+    width: 100px;
+}
+
+.menu button {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+
+/* Panel principal que contiene el carrusel */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 350px; /* Tamaño fijo del carrusel, solo una tarjeta visible */
+    height: 400px;  /* Ajusta el tamaño del carrusel */
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden; /* Oculta las tarjetas fuera del contenedor */
+}
+
+/* Estilo para el carrusel (solo una tarjeta a la vez) */
+.card-wrapper {
+    display: flex;
+    flex-direction: row;  /* Carrusel horizontal */
+    transition: transform 0.5s ease-in-out;
+    width: 100%;  
+}
+
+/* Estilo de la tarjeta */
+.card {
+    background-color: #f5f5f5;
+    width: 200px;  /* Tamaño fijo de la tarjeta */
+    margin-left: 60px;  /* Espacio entre tarjetas */
+    margin-right: 60px;  /* Espacio entre tarjetas */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    height: 350px;
+}
+
+/* Efecto al pasar el ratón por encima */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen dentro de la tarjeta */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Título dentro de la tarjeta */
+.card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Párrafo dentro de la tarjeta */
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Estilo para las flechas de navegación */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Flecha izquierda */
+.arrow-left {
+    left: 10px;
+}
+
+/* Flecha derecha */
+.arrow-right {
+    right: 10px;
+}
+
+/* Flechas cuando se pasa el ratón */
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.description {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.description h3 {
+    font-size: 1.8rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 10px 0;
+    background-color:transparent;
+    border-radius: 5px;
+}
