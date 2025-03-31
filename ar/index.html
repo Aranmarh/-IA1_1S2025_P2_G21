@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TurisAR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.3.2/aframe/build/aframe-ar.min.js"></script>
+    <style>
+      .info-panel {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 300px;
+        display: none;
+      }
+      .info-panel.active {
+        display: block;
+      }
+      .info-panel img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      .info-panel a {
+        display: block;
+        margin-top: 5px;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; overflow: hidden">
+    <a-scene embedded arjs>
+      <!-- Antigua Guatemala -->
+      <a-marker type="pattern" url="pattern-img1.patt" id="antigua-marker">
+        <a-box position="0 0.5 0" color="#FFC107"></a-box>
+      </a-marker>
+
+      <!-- Ciudad Quetzal -->
+      <a-marker type="pattern" url="pattern-img2.patt" id="quetzal-marker">
+        <a-sphere position="0 0.5 0" color="#4CAF50"></a-sphere>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <!-- Info Antigua Guatemala -->
+    <div class="info-panel" id="info-antigua">
+      <h3>Antigua Guatemala</h3>
+      <img src="img1.jpg" alt="Antigua Guatemala" />
+      <p>
+        Antigua Guatemala es una ciudad colonial ubicada en el departamento de Sacatepéquez, famosa por su arquitectura barroca, calles empedradas y ruinas históricas. Fue la capital del Reino de Guatemala y es Patrimonio Cultural de la Humanidad por la UNESCO. Su ambiente tranquilo, iglesias antiguas y vistas al volcán la convierten en un destino turístico muy popular.
+      </p>
+      <a href="https://whc.unesco.org/en/list/65/" target="_blank">Más información</a>
+      <a href="https://www.google.com/maps/place/Antigua+Guatemala" target="_blank">Ver en Google Maps</a>
+    </div>
+
+    <!-- Info Ciudad Quetzal -->
+    <div class="info-panel" id="info-quetzal">
+      <h3>Ciudad Quetzal</h3>
+      <img src="img2.jpeg" alt="Ciudad Quetzal" />
+      <p>
+        Ciudad Quetzal, situada en el municipio de San Juan Sacatepéquez, es una zona urbana densamente poblada en las afueras de la Ciudad de Guatemala. A pesar de enfrentar desafíos sociales y de infraestructura, es un área en constante crecimiento, donde miles de familias guatemaltecas trabajan día a día por mejores oportunidades.
+      </p>
+      <a href="https://goo.gl/maps/dwtMycJmZkvUZkRe7" target="_blank">Ver en Google Maps</a>
+    </div>
+
+    <script>
+      const antiguaMarker = document.querySelector("#antigua-marker");
+      const quetzalMarker = document.querySelector("#quetzal-marker");
+
+      const infoAntigua = document.querySelector("#info-antigua");
+      const infoQuetzal = document.querySelector("#info-quetzal");
+
+      antiguaMarker.addEventListener("markerFound", () => {
+        infoAntigua.classList.add("active");
+      });
+      antiguaMarker.addEventListener("markerLost", () => {
+        infoAntigua.classList.remove("active");
+      });
+
+      quetzalMarker.addEventListener("markerFound", () => {
+        infoQuetzal.classList.add("active");
+      });
+      quetzalMarker.addEventListener("markerLost", () => {
+        infoQuetzal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
