@@ -1,0 +1,10 @@
+[
+  {
+    "nombre": "Zoológico La Aurora",
+    "imagen": "../assets/cargas/zoo.jpg",
+    "ficha": "Uno de los zoológicos más grandes y visitados de Guatemala. Ideal para conocer fauna nacional e internacional.",
+    "web": "https://zoolap.org.gt/",
+    "mapa": "https://goo.gl/maps/ME9qHysvPUe7AbnQ6",
+    "filtro": "zoo01"
+  }
+]

@@ -37,6 +37,7 @@ function toggleMenu() {
 
 // Función para mostrar el modal de inicio de sesión
 function mostrarLogin() {
+    
     Swal.fire({
         title: 'Inicio de sesión',
         html: `
