@@ -1,43 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
-    <link rel="stylesheet" href="/admin/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - TurisAR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    .conoce-nuestro-sitio h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #222;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.15);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      font-family: 'Montserrat', sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 180px;
+      flex: 1 1 250px;
+    }
+
+    form button {
+      background-color: #003366;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #0059b3;
+    }
+  </style>
 </head>
 <body>
-    <!-- Sidebar de navegación -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <h2>Panel Admin</h2>
-        </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Gestión de Usuarios</a></li>
-                <li><a href="#">Configuración</a></li>
-                <li><a href="#">Estadísticas</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-            </ul>
-        </nav>
-    </aside>
+  <div class="panel">
+    <header>
+      <div class="logo">
+        <img src="../assets/images/OIP.png" alt="Logo Guatemala">
+      </div>
+      <div class="menu">
+        <button onclick="window.location.href='../inicio/index.html'">Volver al Inicio</button>
+        <button onclick="descargarJSON()">Descargar JSON</button>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
 
-    <!-- Contenido principal -->
-    <div class="main-content">
-        <!-- Header -->
-        <header class="admin-header">
-            <a href="../inicio/index.html" class="back-btn">← Volver a la Página Inicial</a>
-            <h1>Panel de Administración</h1>
-        </header>
+    <main>
+      <h1>TurisAR Admin</h1>
+      <h3>IA1 G16</h3>
 
-        <!-- Sección de contenido -->
-        <section class="content">
-            <h2>Resumen de Actividades</h2>
-            <p>Esta es una breve descripción de lo que se muestra en el panel de administración...</p>
-        </section>
-    </div>
+      <section class="conoce-nuestro-sitio" style="margin-top: 30px;">
+        <h1>Gestor de Puntos de Interés</h1>
+        <form id="formulario">
+          <input type="text" id="nombre" placeholder="Nombre del lugar" required>
+          <input type="text" id="imagen" placeholder="URL de imagen" required>
+          <textarea id="ficha" placeholder="Ficha informativa" required></textarea>
+          <input type="url" id="web" placeholder="Enlace a sitio web" required>
+          <input type="url" id="mapa" placeholder="Ubicación en Google Maps" required>
+          <input type="text" id="filtro" placeholder="Filtro temático (ID del marcador)" required>
+          <button type="submit">Agregar</button>
+        </form>
+      </section>
+    </main>
+  </div>
 
-    <script src="script.js"></script>
+  <section class="conoce-nuestro-sitio">
+    <div id="lista-lugares" class="informacion"></div>
+  </section>
+
+  <script>
+    let lugares = JSON.parse(localStorage.getItem('lugares')) || [];
+
+    function guardarDatos() {
+      localStorage.setItem('lugares', JSON.stringify(lugares));
+      mostrarLugares();
+    }
+
+    function mostrarLugares() {
+      const contenedor = document.getElementById('lista-lugares');
+      contenedor.innerHTML = '';
+
+      lugares.forEach((lugar, index) => {
+        contenedor.innerHTML += `
+          <div class="card">
+            <h2>${lugar.nombre}</h2>
+            <img src="${lugar.imagen}" alt="${lugar.nombre}">
+            <p>${lugar.ficha}</p>
+            <p>
+              <a href="${lugar.web}" target="_blank">Sitio Web</a> |
+              <a href="${lugar.mapa}" target="_blank">Ver Mapa</a>
+            </p>
+            <small>Filtro: ${lugar.filtro}</small><br><br>
+            <button onclick="editarLugar(${index})">Editar</button>
+            <button onclick="eliminarLugar(${index})">Eliminar</button>
+          </div>
+        `;
+      });
+    }
+
+    function editarLugar(index) {
+      const lugar = lugares[index];
+      document.getElementById('nombre').value = lugar.nombre;
+      document.getElementById('imagen').value = lugar.imagen;
+      document.getElementById('ficha').value = lugar.ficha;
+      document.getElementById('web').value = lugar.web;
+      document.getElementById('mapa').value = lugar.mapa;
+      document.getElementById('filtro').value = lugar.filtro;
+      lugares.splice(index, 1);
+      guardarDatos();
+    }
+
+    function eliminarLugar(index) {
+      lugares.splice(index, 1);
+      guardarDatos();
+    }
+
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nuevoLugar = {
+        nombre: document.getElementById('nombre').value,
+        imagen: document.getElementById('imagen').value,
+        ficha: document.getElementById('ficha').value,
+        web: document.getElementById('web').value,
+        mapa: document.getElementById('mapa').value,
+        filtro: document.getElementById('filtro').value
+      };
+      lugares.push(nuevoLugar);
+      guardarDatos();
+      this.reset();
+    });
+
+    function descargarJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(lugares, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", "lugares.json");
+      dlAnchor.click();
+    }
+
+    function toggleMenu() {
+      document.querySelector('.menu').classList.toggle('active');
+    }
+
+    // Mostrar al cargar
+    mostrarLugares();
+  </script>
 </body>
 </html>
