@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "Zoológico La Aurora",
+    "imagen": "../assets/cargas/zoo.jpg",
+    "ficha": "Zoológico más importante del país. Ideal para toda la familia.",
+    "web": "https://zoolap.org.gt",
+    "mapa": "https://goo.gl/maps/ME9qHysvPUe7AbnQ6",
+    "filtro": "zoo01"
+  },
+  {
+    "nombre": "Volcán de Pacaya",
+    "imagen": "../assets/cargas/volcan.jpg",
+    "ficha": "Volcán activo que ofrece caminatas y vistas impresionantes.",
+    "web": "https://www.visitguatemala.com/destinos/volcan-de-pacaya/",
+    "mapa": "https://goo.gl/maps/zrRwBP6UYyfvbLXL8",
+    "filtro": "volcan01"
+  },
+  {
+    "nombre": "Museo Nacional de Arqueología",
+    "imagen": "../assets/cargas/museo.jpg",
+    "ficha": "Alberga una gran colección de artefactos mayas precolombinos.",
+    "web": "https://mcd.gob.gt/museo-nacional-de-arqueologia-y-etnologia/",
+    "mapa": "https://goo.gl/maps/P3E6gBdgvZsmE7QCA",
+    "filtro": "museo01"
+  }
+]
