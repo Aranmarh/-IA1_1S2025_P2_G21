@@ -2,9 +2,88 @@
   {
     "nombre": "Zoológico La Aurora",
     "imagen": "../assets/cargas/zoo.jpg",
-    "ficha": "Uno de los zoológicos más grandes y visitados de Guatemala. Ideal para conocer fauna nacional e internacional.",
-    "web": "https://zoolap.org.gt/",
-    "mapa": "https://goo.gl/maps/ME9qHysvPUe7AbnQ6",
-    "filtro": "zoo01"
+    "ficha": "Zoológico más importante del país. Ideal para toda la familia.",
+    "web": "https://www.aurorazoo.org.gt/",
+    "mapa": "https://maps.app.goo.gl/TQGtCQwX6iwoZY7Y8",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      },
+      {
+        "pais": "china",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png"
+      },
+      {
+        "pais": "egipto",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Volcán de Pacaya",
+    "imagen": "../assets/cargas/volcan.jpg",
+    "ficha": "Volcán activo que ofrece caminatas y vistas impresionantes.",
+    "web": "https://www.volcandepacaya.com.gt/",
+    "mapa": "https://maps.app.goo.gl/VNDrbxEtg7Eja6Hp7",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      },
+      {
+        "pais": "china",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png"
+      },
+      {
+        "pais": "egipto",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Museo Nacional de Arqueología",
+    "imagen": "../assets/cargas/museo.jpg",
+    "ficha": "Alberga una gran colección de artefactos mayas precolombinos.",
+    "web": "https://www.sicultura.gob.gt/directory-directorio_c/listing/museo-nacional-de-arqueologia-y-etnologia/",
+    "mapa": "https://maps.app.goo.gl/zFdshUMcqDDQ5WBLA",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      },
+      {
+        "pais": "china",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png"
+      },
+      {
+        "pais": "egipto",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png"
+      }
+    ]
   }
 ]
