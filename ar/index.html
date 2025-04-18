@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>TurisAR</title>
+    <title>TurisAR - 7 Maravillas de Guatemala</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.3.2/aframe/build/aframe-ar.min.js"></script>
     <style>
@@ -30,61 +30,173 @@
       }
     </style>
   </head>
+
   <body style="margin: 0; overflow: hidden">
-    <a-scene embedded arjs>
-      <!-- Antigua Guatemala -->
-      <a-marker type="pattern" url="pattern-img1.patt" id="antigua-marker">
+    <a-scene embedded arjs vr-mode-ui="enabled: false">
+      <!-- Maravillas de Guatemala -->
+      <a-marker type="pattern" url="pattern-g1.patt" id="g1">
         <a-box position="0 0.5 0" color="#FFC107"></a-box>
       </a-marker>
-
-      <!-- Ciudad Quetzal -->
-      <a-marker type="pattern" url="pattern-img2.patt" id="quetzal-marker">
+      <a-marker type="pattern" url="pattern-g2.patt" id="g2">
         <a-sphere position="0 0.5 0" color="#4CAF50"></a-sphere>
       </a-marker>
-
+      <a-marker type="pattern" url="pattern-g3.patt" id="g3">
+        <a-cylinder position="0 0.5 0" color="#2196F3"></a-cylinder>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-g4.patt" id="g4">
+        <a-cone position="0 0.5 0" color="#9C27B0"></a-cone>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-g5.patt" id="g5">
+        <a-box position="0 0.5 0" color="#E91E63"></a-box>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-g6.patt" id="g6">
+        <a-sphere position="0 0.5 0" color="#3F51B5"></a-sphere>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-g7.patt" id="g7">
+        <a-cylinder position="0 0.5 0" color="#009688"></a-cylinder>
+      </a-marker>
+    
+      <!-- Maravillas del Mundo -->
+      <a-marker type="pattern" url="pattern-m1.patt" id="m1">
+        <a-box position="0 0.5 0" color="#795548"></a-box>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-m2.patt" id="m2">
+        <a-sphere position="0 0.5 0" color="#FF5722"></a-sphere>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-m3.patt" id="m3">
+        <a-cylinder position="0 0.5 0" color="#673AB7"></a-cylinder>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-m4.patt" id="m4">
+        <a-cone position="0 0.5 0" color="#03A9F4"></a-cone>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-m5.patt" id="m5">
+        <a-box position="0 0.5 0" color="#CDDC39"></a-box>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-m6.patt" id="m6">
+        <a-sphere position="0 0.5 0" color="#FF9800"></a-sphere>
+      </a-marker>
+      <a-marker type="pattern" url="pattern-m7.patt" id="m7">
+        <a-cylinder position="0 0.5 0" color="#00BCD4"></a-cylinder>
+      </a-marker>
+    
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- Info Antigua Guatemala -->
-    <div class="info-panel" id="info-antigua">
+    <!-- Paneles de información -->
+    <div class="info-panel" id="info-g1">
+      <h3>Tikal</h3>
+      <img src="g1.jpg" />
+      <p>Antigua ciudad maya ubicada en Petén, famosa por sus templos y estructuras monumentales.</p>
+      <a href="https://whc.unesco.org/en/list/64/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/6tbXRqaXJLNaqY7b7" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-g2">
+      <h3>Semuc Champey</h3>
+      <img src="g2.jpg" />
+      <p>Formación natural de pozas de agua turquesa en Alta Verapaz, rodeada de selva.</p>
+      <a href="https://www.atlasobscura.com/places/semuc-champey" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/3dGCga6mDgPMobTe9" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-g3">
+      <h3>Lago de Atitlán</h3>
+      <img src="g3.jpg" />
+      <p>Lago rodeado por volcanes y pueblos mayas, considerado uno de los más bellos del mundo.</p>
+      <a href="https://whc.unesco.org/en/tentativelists/1220/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/VU9HLUBePiwCgFaR6" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-g4">
       <h3>Antigua Guatemala</h3>
-      <img src="img1.jpg" alt="Antigua Guatemala" />
-      <p>
-        Antigua Guatemala es una ciudad colonial ubicada en el departamento de Sacatepéquez, famosa por su arquitectura barroca, calles empedradas y ruinas históricas. Fue la capital del Reino de Guatemala y es Patrimonio Cultural de la Humanidad por la UNESCO. Su ambiente tranquilo, iglesias antiguas y vistas al volcán la convierten en un destino turístico muy popular.
-      </p>
+      <img src="g4.jpg" />
+      <p>Ciudad colonial Patrimonio de la Humanidad, famosa por su arquitectura barroca y volcanes.</p>
       <a href="https://whc.unesco.org/en/list/65/" target="_blank">Más información</a>
-      <a href="https://www.google.com/maps/place/Antigua+Guatemala" target="_blank">Ver en Google Maps</a>
+      <a href="https://maps.app.goo.gl/VQXZsyCMepeXN9oA9" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-g5">
+      <h3>Volcán de Agua</h3>
+      <img src="g5.jpg" />
+      <p>Volcán icónico de Guatemala visible desde Antigua, con más de 3,700 metros de altitud.</p>
+      <a href="https://en.wikipedia.org/wiki/Volcán_de_Agua" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/rAABtKXoMVUevEZn9" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-g6">
+      <h3>Castillo de San Felipe</h3>
+      <img src="g6.jpg" />
+      <p>Fortaleza colonial ubicada en Izabal, usada para defenderse de los piratas.</p>
+      <a href="https://whc.unesco.org/en/tentativelists/1222/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/p8HtK6WzCdq3DWVq5" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-g7">
+      <h3>Iximché</h3>
+      <img src="g7.jpg" />
+      <p>Ruinas de la capital del reino Cakchiquel, ubicadas en Chimaltenango.</p>
+      <a href="https://whc.unesco.org/en/tentativelists/1497/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/fXqqgFgJWk3TwnzY7" target="_blank">Ver en Google Maps</a>
     </div>
 
-    <!-- Info Ciudad Quetzal -->
-    <div class="info-panel" id="info-quetzal">
-      <h3>Ciudad Quetzal</h3>
-      <img src="img2.jpeg" alt="Ciudad Quetzal" />
-      <p>
-        Ciudad Quetzal, situada en el municipio de San Juan Sacatepéquez, es una zona urbana densamente poblada en las afueras de la Ciudad de Guatemala. A pesar de enfrentar desafíos sociales y de infraestructura, es un área en constante crecimiento, donde miles de familias guatemaltecas trabajan día a día por mejores oportunidades.
-      </p>
-      <a href="https://goo.gl/maps/dwtMycJmZkvUZkRe7" target="_blank">Ver en Google Maps</a>
+    <!-- Maravillas del mundo -->
+    <div class="info-panel" id="info-m1">
+      <h3>Gran Muralla China</h3>
+      <img src="m1.jpg" />
+      <p>Antigua muralla defensiva que se extiende por miles de kilómetros en China.</p>
+      <a href="https://whc.unesco.org/en/list/438/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/P3Tu2SKGzT4yUvZn7" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-m2">
+      <h3>Petra</h3>
+      <img src="m2.jpg" />
+      <p>Ciudad histórica excavada en roca rosa, ubicada en Jordania.</p>
+      <a href="https://whc.unesco.org/en/list/326/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/jokCnKwRxEGNgcMx8" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-m3">
+      <h3>Cristo Redentor</h3>
+      <img src="m3.jpg" />
+      <p>Icono de Río de Janeiro, Brasil, símbolo del cristianismo.</p>
+      <a href="https://pt.wikipedia.org/wiki/Cristo_Redentor" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/6bWrsQ3FKfQpyybR6" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-m4">
+      <h3>Machu Picchu</h3>
+      <img src="m4.jpg" />
+      <p>Ciudadela inca en Perú, ubicada en lo alto de los Andes.</p>
+      <a href="https://whc.unesco.org/en/list/274/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/9mqMV8cUqKXjkWdu9" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-m5">
+      <h3>Chichén Itzá</h3>
+      <img src="m5.jpg" />
+      <p>Sitio arqueológico maya ubicado en Yucatán, México.</p>
+      <a href="https://whc.unesco.org/en/list/483/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/4MehrgEBycDAS7d58" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-m6">
+      <h3>Coliseo Romano</h3>
+      <img src="m6.jpg" />
+      <p>Antiguo anfiteatro en Roma, Italia, símbolo del Imperio Romano.</p>
+      <a href="https://whc.unesco.org/en/list/91/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/JrM2r5pZ55uCkEUF6" target="_blank">Ver en Google Maps</a>
+    </div>
+    <div class="info-panel" id="info-m7">
+      <h3>Taj Mahal</h3>
+      <img src="m7.jpg" />
+      <p>Mausoleo de mármol blanco en India, símbolo del amor eterno.</p>
+      <a href="https://whc.unesco.org/en/list/252/" target="_blank">Más información</a>
+      <a href="https://maps.app.goo.gl/qCniS9HFWHzjB7ex7" target="_blank">Ver en Google Maps</a>
     </div>
 
     <script>
-      const antiguaMarker = document.querySelector("#antigua-marker");
-      const quetzalMarker = document.querySelector("#quetzal-marker");
+      const ids = [
+        "g1", "g2", "g3", "g4", "g5", "g6", "g7",
+        "m1", "m2", "m3", "m4", "m5", "m6", "m7"
+      ];
 
-      const infoAntigua = document.querySelector("#info-antigua");
-      const infoQuetzal = document.querySelector("#info-quetzal");
-
-      antiguaMarker.addEventListener("markerFound", () => {
-        infoAntigua.classList.add("active");
-      });
-      antiguaMarker.addEventListener("markerLost", () => {
-        infoAntigua.classList.remove("active");
-      });
-
-      quetzalMarker.addEventListener("markerFound", () => {
-        infoQuetzal.classList.add("active");
-      });
-      quetzalMarker.addEventListener("markerLost", () => {
-        infoQuetzal.classList.remove("active");
+      ids.forEach(id => {
+        const marker = document.querySelector(`#${id}`);
+        const panel = document.querySelector(`#info-${id}`);
+        if (marker && panel) {
+          marker.addEventListener("markerFound", () => panel.classList.add("active"));
+          marker.addEventListener("markerLost", () => panel.classList.remove("active"));
+        }
       });
     </script>
   </body>
