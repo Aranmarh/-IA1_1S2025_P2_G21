@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+        "mindar-face-three": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-three.prod.js"
+      }
+    }
+    </script>
+
+    <script type="module">
+      import * as THREE from 'three';
+      import { MindARThree } from 'mindar-face-three';
+
+      const mindarThree = new MindARThree({
+        container: document.querySelector("#container"),
+      });
+
+      const { renderer, scene, camera } = mindarThree;
+
+      const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
+      scene.add(light);
+
+      const faceMesh = mindarThree.addFaceMesh();
+      scene.add(faceMesh);
+
+      // Cargar textura inicial
+      const initialTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png');
+      faceMesh.material.map = initialTexture;
+      faceMesh.material.transparent = true;
+      faceMesh.material.needsUpdate = true;
+
+      const start = async () => {
+        await mindarThree.start();
+        renderer.setAnimationLoop(() => {
+          renderer.render(scene, camera);
+        });
+      };
+      start();
+
+      // Mapeo de texturas según país
+      const paises = {
+        brasil: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png',
+        india: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png',
+        guatemala: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png',
+        china: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png',
+        egipto: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png',
+      };
+
+      // Cambiar textura al hacer clic en la bandera
+      const panel = document.querySelector('.options-panel');
+      const buttons = panel.querySelectorAll('img');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const id = button.id.toLowerCase();
+
+          if (paises[id]) {
+            const newTexture = new THREE.TextureLoader().load(paises[id]);
+            faceMesh.material.map = newTexture;
+            faceMesh.material.needsUpdate = true;
+
+            // Resaltar selección
+            buttons.forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+          } else {
+            console.warn(`No se encontró textura para: ${id}`);
+          }
+        });
+      });
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .options-panel {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 12px;
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        max-width: 90%;
+        scrollbar-width: none;
+      }
+
+      .options-panel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .options-panel img {
+        border: solid 2px transparent;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      .options-panel img.selected {
+        border-color: green;
+      }
+
+      @media (max-width: 768px) {
+        .options-panel {
+          left: 0;
+          transform: none;
+          width: 100%;
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="options-panel">
+        <img id="guatemala" title="Guatemala" src="./paises/guatemala.jpg" />
+        <img id="brasil" title="Brasil" src="./paises/Brasil.png" />
+        <img id="egipto" title="Egipto" src="./paises/egipto.png" />
+        <img id="china" title="China" src="./paises/china.png" />
+        <img id="india" title="India" src="./paises/india.png" />
+      </div>
+    </div>
+  </body>
+</html>
