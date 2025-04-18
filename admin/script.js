@@ -186,7 +186,9 @@ function descargarJSON() {
 }
 function cerrarSesion() {
   localStorage.removeItem('logueado');
-  window.location.href = '../inicio/index.html';
+  localStorage.getItem('logueado'); // Ahora debería devolver null
+  Swal.fire('Sesión cerrada', 'Has cerrado sesión correctamente.', 'success');  
+  window.location.href = './index.html';
 }
 
 

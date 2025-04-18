@@ -28,12 +28,54 @@
       const faceMesh = mindarThree.addFaceMesh();
       scene.add(faceMesh);
 
-      // Cargar textura inicial
-      const initialTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png');
+      // 1. Texturas por defecto
+      let paises = {
+        brasil: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png',
+        india: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png',
+        guatemala: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png',
+        china: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png',
+        egipto: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png',
+      };
+
+      // 2. Reemplazar desde localStorage si hay datos
+      const lugaresJSON = localStorage.getItem('lugares');
+      if (lugaresJSON) {
+        try {
+          const lugares = JSON.parse(lugaresJSON);
+          if (Array.isArray(lugares) && lugares.length > 0 && Array.isArray(lugares[0].filtros)) {
+            const filtros = lugares[0].filtros;
+            if (filtros.length > 0) {
+              paises = {};
+              filtros.forEach(f => {
+                paises[f.pais] = f.icono;
+              });
+            }
+          }
+        } catch (e) {
+          console.error("Error leyendo filtros desde localStorage:", e);
+        }
+      }
+
+      // 3. Limpiar y crear dinámicamente la options-panel
+      const panel = document.querySelector('.options-panel');
+      panel.innerHTML = "";
+
+      Object.entries(paises).forEach(([pais, icono]) => {
+        const img = document.createElement("img");
+        img.id = pais;
+        img.title = pais;
+        img.src = icono;
+        panel.appendChild(img);
+      });
+
+      // 4. Cargar textura inicial (primer país)
+      const primerPais = Object.keys(paises)[0];
+      const initialTexture = new THREE.TextureLoader().load(paises[primerPais]);
       faceMesh.material.map = initialTexture;
       faceMesh.material.transparent = true;
       faceMesh.material.needsUpdate = true;
 
+      // 5. Activar AR
       const start = async () => {
         await mindarThree.start();
         renderer.setAnimationLoop(() => {
@@ -42,19 +84,8 @@
       };
       start();
 
-      // Mapeo de texturas según país
-      const paises = {
-        brasil: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png',
-        india: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png',
-        guatemala: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png',
-        china: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png',
-        egipto: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png',
-      };
-
-      // Cambiar textura al hacer clic en la bandera
-      const panel = document.querySelector('.options-panel');
+      // 6. Eventos click para cambiar textura
       const buttons = panel.querySelectorAll('img');
-
       buttons.forEach(button => {
         button.addEventListener('click', () => {
           const id = button.id.toLowerCase();
@@ -64,7 +95,7 @@
             faceMesh.material.map = newTexture;
             faceMesh.material.needsUpdate = true;
 
-            // Resaltar selección
+            // Marcar selección
             buttons.forEach(b => b.classList.remove('selected'));
             button.classList.add('selected');
           } else {
@@ -134,13 +165,7 @@
 
   <body>
     <div id="container">
-      <div class="options-panel">
-        <img id="guatemala" title="Guatemala" src="./paises/guatemala.jpg" />
-        <img id="brasil" title="Brasil" src="./paises/Brasil.png" />
-        <img id="egipto" title="Egipto" src="./paises/egipto.png" />
-        <img id="china" title="China" src="./paises/china.png" />
-        <img id="india" title="India" src="./paises/india.png" />
-      </div>
+      <div class="options-panel"></div>
     </div>
   </body>
 </html>
