@@ -337,6 +337,90 @@ form button:hover {
     transform: scale(1.05);
 }
 
+.filtro-paises {
+    text-align: center;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .filtro-paises img {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  
+  .filtro-paises img:hover {
+    transform: scale(1.1);
+    border-color: #003366;
+  }
+
+  
+  .iconos-filtro {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .iconos-filtro img {
+    width: 30px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: default;
+  }
+
+
+  .filtros-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px 0;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  
+  .bandera-filtro {
+    display: inline-block !important;
+    width: 70px !important;
+    height: 55px !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+    border: 1px solid #ccc !important;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  
+  
+  .bandera-filtro:hover {
+    transform: scale(1.1);
+    display: block;
+  }
+
+.filtro-preview {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.btn-borrar-filtro {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+
 
 /* Estilos para el menú en dispositivos pequeños */
 @media screen and (max-width: 768px) {

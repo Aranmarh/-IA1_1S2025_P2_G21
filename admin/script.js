@@ -1,5 +1,8 @@
 let lugares = JSON.parse(localStorage.getItem('lugares')) || [];
 let indiceEditando = null;
+let filtrosTemporales = [];
+
+
 // Guarda los datos en localStorage y actualiza la vista
 function guardarDatos() {
   localStorage.setItem('lugares', JSON.stringify(lugares));
@@ -7,27 +10,34 @@ function guardarDatos() {
 }
 
 // Muestra los lugares en forma de tarjetas
+// Muestra los lugares en forma de tarjetas
 function mostrarLugares() {
   const contenedor = document.getElementById('lista-lugares');
   contenedor.innerHTML = '';
 
   lugares.forEach((lugar, index) => {
+    const filtrosHTML = lugar.filtros?.map(f =>
+      `<img src="${f.icono}" alt="${f.pais}" title="${f.pais}" class="bandera-filtro">`
+    ).join('') || '';
+
     contenedor.innerHTML += `
       <div class="card">
         <h2>${lugar.nombre}</h2>
         <img src="${lugar.imagen}" alt="${lugar.nombre}">
+        <div class="filtros-container">${filtrosHTML}</div>
         <p>${lugar.ficha}</p>
         <p>
           <a href="${lugar.web}" target="_blank">Sitio Web</a> |
           <a href="${lugar.mapa}" target="_blank">Ver Mapa</a>
         </p>
-        <small>Filtro: ${lugar.filtro}</small><br><br>
         <button onclick="editarLugar(${index})">Editar</button>
         <button onclick="eliminarLugar(${index})">Eliminar</button>
       </div>
     `;
   });
 }
+
+
 
 // Carga los datos del lugar seleccionado en el formulario
 function editarLugar(index) {
@@ -37,9 +47,28 @@ function editarLugar(index) {
   document.getElementById('ficha').value = lugar.ficha;
   document.getElementById('web').value = lugar.web;
   document.getElementById('mapa').value = lugar.mapa;
-  document.getElementById('filtro').value = lugar.filtro;
-  indiceEditando = index; // Guardamos el índice
+
+  // Reset filtros temporales y visuales
+  filtrosTemporales = lugar.filtros ? [...lugar.filtros] : [];
+  const contenedor = document.getElementById('filtros-agregados');
+  contenedor.innerHTML = '';
+
+  // Mostrar filtros con botón de eliminar
+  filtrosTemporales.forEach((f, i) => {
+    const div = document.createElement('div');
+    div.classList.add('filtro-preview');
+    div.setAttribute('data-index', i);
+    div.innerHTML = `
+      <img src="${f.icono}" title="${f.pais}" class="bandera-filtro">
+      <small>${f.pais}</small>
+      <button type="button" class="btn-borrar-filtro" onclick="eliminarFiltro(${i})">❌</button>
+    `;
+    contenedor.appendChild(div);
+  });
+
+  indiceEditando = index;
 }
+
 
 // Elimina un lugar
 function eliminarLugar(index) {
@@ -63,16 +92,26 @@ function eliminarLugar(index) {
 document.getElementById('formulario').addEventListener('submit', function (e) {
   e.preventDefault();
 
+  const nombre = document.getElementById('nombre').value;
+  const imagen = document.getElementById('imagen').value;
+  const ficha = document.getElementById('ficha').value;
+  const web = document.getElementById('web').value;
+  const mapa = document.getElementById('mapa').value;
+
   const nuevoLugar = {
-    nombre: document.getElementById('nombre').value,
-    imagen: document.getElementById('imagen').value,
-    ficha: document.getElementById('ficha').value,
-    web: document.getElementById('web').value,
-    mapa: document.getElementById('mapa').value,
-    filtro: document.getElementById('filtro').value
+    nombre,
+    imagen,
+    ficha,
+    web,
+    mapa,
+    filtros: filtrosTemporales.slice() // copiamos los filtros temporales
   };
 
-  // Mostrar vista previa en SweetAlert
+  // Crear vista previa con todas las banderas
+  const filtrosHTML = nuevoLugar.filtros.map(f =>
+    `<img src="${f.icono}" title="${f.pais}" style="height:20px; margin-right:4px;">`
+  ).join('');
+
   Swal.fire({
     title: `¿Agregar "${nuevoLugar.nombre}"?`,
     html: `
@@ -80,7 +119,7 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
       <p><strong>Ficha:</strong> ${nuevoLugar.ficha}</p>
       <p><strong>Sitio Web:</strong> <a href="${nuevoLugar.web}" target="_blank">${nuevoLugar.web}</a></p>
       <p><strong>Mapa:</strong> <a href="${nuevoLugar.mapa}" target="_blank">${nuevoLugar.mapa}</a></p>
-      <p><strong>Filtro:</strong> ${nuevoLugar.filtro}</p>
+      ${filtrosHTML ? `<p><strong>Filtros:</strong><br>${filtrosHTML}</p>` : ''}
     `,
     showCancelButton: true,
     confirmButtonText: 'Agregar',
@@ -94,14 +133,18 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
       } else {
         lugares.push(nuevoLugar);
       }
-      
+
       guardarDatos();
       document.getElementById('formulario').reset();
+      document.getElementById('filtros-agregados').innerHTML = '';
+      filtrosTemporales = [];
 
       Swal.fire('Agregado', 'El lugar fue agregado correctamente.', 'success');
     }
   });
 });
+
+
 
 document.getElementById('archivo-json').addEventListener('change', function (event) {
   const archivo = event.target.files[0];
@@ -151,6 +194,84 @@ function cerrarSesion() {
 function toggleMenu() {
   document.querySelector('.menu').classList.toggle('active');
 }
+
+
+function filtrarPorPais(pais) {
+  const contenedor = document.getElementById('lista-lugares');
+  contenedor.innerHTML = '';
+
+  lugares
+    .filter(lugar => lugar.filtro.toLowerCase().includes(pais.toLowerCase()))
+    .forEach((lugar, index) => {
+      contenedor.innerHTML += `
+        <div class="card">
+          <h2>${lugar.nombre}</h2>
+          <img src="${lugar.imagen}" alt="${lugar.nombre}">
+          <p>${lugar.ficha}</p>
+          <p>
+            <a href="${lugar.web}" target="_blank">Sitio Web</a> |
+            <a href="${lugar.mapa}" target="_blank">Ver Mapa</a>
+          </p>
+          <small>Filtro: ${lugar.filtro}</small><br><br>
+          <button onclick="editarLugar(${index})">Editar</button>
+          <button onclick="eliminarLugar(${index})">Eliminar</button>
+        </div>
+      `;
+    });
+}
+
+
+function agregarFiltro() {
+  const paisInput = document.querySelector('.input-pais');
+  const iconoInput = document.querySelector('.input-icono');
+  const pais = paisInput.value.trim();
+  const icono = iconoInput.value.trim();
+
+  if (!pais || !icono) {
+    Swal.fire('Campos vacíos', 'Debes llenar país e ícono.', 'warning');
+    return;
+  }
+
+  const index = filtrosTemporales.length;
+  filtrosTemporales.push({ pais, icono });
+
+  const contenedor = document.getElementById('filtros-agregados');
+  const filtroDiv = document.createElement('div');
+  filtroDiv.classList.add('filtro-preview');
+  filtroDiv.setAttribute('data-index', index);
+
+  filtroDiv.innerHTML = `
+    <img src="${icono}" title="${pais}" class="bandera-filtro">
+    <small>${pais}</small>
+    <button type="button" class="btn-borrar-filtro" onclick="eliminarFiltro(${index})">❌</button>
+  `;
+
+  contenedor.appendChild(filtroDiv);
+
+  paisInput.value = '';
+  iconoInput.value = '';
+}
+
+function eliminarFiltro(index) {
+  // Eliminar el filtro del array temporal
+  filtrosTemporales.splice(index, 1);
+
+  // Volver a renderizar todos los filtros visibles
+  const contenedor = document.getElementById('filtros-agregados');
+  contenedor.innerHTML = '';
+  filtrosTemporales.forEach((f, i) => {
+    const div = document.createElement('div');
+    div.classList.add('filtro-preview');
+    div.setAttribute('data-index', i);
+    div.innerHTML = `
+      <img src="${f.icono}" title="${f.pais}" class="bandera-filtro">
+      <small>${f.pais}</small>
+      <button type="button" class="btn-borrar-filtro" onclick="eliminarFiltro(${i})">❌</button>
+    `;
+    contenedor.appendChild(div);
+  });
+}
+
 
 // Mostrar datos al cargar
 mostrarLugares();
