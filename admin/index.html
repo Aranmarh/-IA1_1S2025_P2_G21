@@ -44,21 +44,27 @@
         <form id="formulario">
           <input type="text" id="nombre" placeholder="Nombre del lugar" required />
           <input type="text" id="imagen" placeholder="URL de imagen" required />
+
           <textarea id="ficha" placeholder="Ficha informativa" required></textarea>
           <input type="url" id="web" placeholder="Enlace a sitio web" required />
-          <input type="url" id="mapa" placeholder="Ubicación en Google Maps" required />
           
+          <input type="url" id="mapa" placeholder="Ubicación en Google Maps" required />
+          <input type="url" id="marker" placeholder="URL del archivo .patt (marker de AR)" required />
+
+
           <div id="filtros-contenedor">
             <h4>Filtros temáticos</h4>
             <div class="filtro-grupo">
+
               <input type="text" class="input-pais" placeholder="Nombre del país del filtro" />
               <input type="url" class="input-icono" placeholder="URL del ícono de la bandera" />
+
               <button type="button" onclick="agregarFiltro()">+ Añadir</button>
             </div>
             <div id="filtros-agregados"></div>
           </div>
-          
-          
+
+
           <button type="submit">Agregar</button>
           <button type="button" onclick="limpiarFormulario()">Limpiar</button>
 
@@ -69,9 +75,9 @@
 
   <section class="conoce-nuestro-sitio">
     <div id="lista-lugares" class="informacion">
-     
+
     </div>
- 
+
 
   </section>
 
