@@ -7,7 +7,7 @@
 
 /* Panel principal que cubre toda la pantalla */
 .panel {
-    background-image: url('../assets/images/R.jpeg'); /* Imagen de fondo */
+    background-image: url('./assets/images/R.jpeg'); /* Imagen de fondo */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Asegura que el panel cubra toda la altura de la pantalla */

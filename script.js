@@ -54,7 +54,7 @@ function mostrarLogin() {
             // Verificar usuario y contraseña
             if (usuario === 'ia1' && contraseña === '2025') {
                 // Si son correctos, redirigir a la página de admin
-                window.location.href = '../admin/index.html';
+                window.location.href = './admin/index.html';
             } else {
                 Swal.showValidationMessage('Usuario o contraseña incorrectos');
             }
