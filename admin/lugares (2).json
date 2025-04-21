@@ -5,7 +5,7 @@
     "ficha": "Zoológico más importante del país. Ideal para toda la familia.",
     "web": "https://www.aurorazoo.org.gt/",
     "mapa": "https://maps.app.goo.gl/TQGtCQwX6iwoZY7Y8",
-    "marker": "https://github.com/Aranmarh/-IA1_1S2025_P2_G21/blob/develop/ar/pattern-g1.patt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g1.patt",
     "filtros": [
       {
         "pais": "brasil",
@@ -27,7 +27,7 @@
     "ficha": "Volcán activo que ofrece caminatas y vistas impresionantes.",
     "web": "https://www.volcandepacaya.com.gt/",
     "mapa": "https://maps.app.goo.gl/VNDrbxEtg7Eja6Hp7",
-    "marker": "https://github.com/Aranmarh/-IA1_1S2025_P2_G21/blob/develop/ar/pattern-g2.patt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g2.patt",
     "filtros": [
       {
         "pais": "brasil",
