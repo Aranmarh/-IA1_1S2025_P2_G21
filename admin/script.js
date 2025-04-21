@@ -47,6 +47,8 @@ function editarLugar(index) {
   document.getElementById('ficha').value = lugar.ficha;
   document.getElementById('web').value = lugar.web;
   document.getElementById('mapa').value = lugar.mapa;
+  document.getElementById('marker').value = lugar.marker || '';
+
 
   // Reset filtros temporales y visuales
   filtrosTemporales = lugar.filtros ? [...lugar.filtros] : [];
@@ -88,6 +90,31 @@ function eliminarLugar(index) {
   });
 }
 
+
+// Reunir todos los filtros únicos de todos los lugares existentes
+const filtrosGlobales = [];
+
+lugares.forEach(lugar => {
+  lugar.filtros?.forEach(f => {
+    const yaExiste = filtrosGlobales.some(existing => existing.pais === f.pais && existing.icono === f.icono);
+    if (!yaExiste) {
+      filtrosGlobales.push(f);
+    }
+  });
+});
+
+// Fusionar filtros globales con los nuevos (evitando duplicados)
+const filtrosFinales = [...filtrosGlobales];
+
+filtrosTemporales.forEach(nuevo => {
+  const yaExiste = filtrosFinales.some(f => f.pais === nuevo.pais && f.icono === nuevo.icono);
+  if (!yaExiste) {
+    filtrosFinales.push(nuevo);
+  }
+});
+
+
+
 // Envía el formulario y agrega un nuevo lugar
 document.getElementById('formulario').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -97,6 +124,8 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
   const ficha = document.getElementById('ficha').value;
   const web = document.getElementById('web').value;
   const mapa = document.getElementById('mapa').value;
+  const marker = document.getElementById('marker').value;
+
 
   const nuevoLugar = {
     nombre,
@@ -104,7 +133,9 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
     ficha,
     web,
     mapa,
-    filtros: filtrosTemporales.slice() // copiamos los filtros temporales
+    marker,
+    filtros: filtrosFinales
+    // copiamos los filtros temporales
   };
 
   // Crear vista previa con todas las banderas
@@ -120,6 +151,8 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
       <p><strong>Sitio Web:</strong> <a href="${nuevoLugar.web}" target="_blank">${nuevoLugar.web}</a></p>
       <p><strong>Mapa:</strong> <a href="${nuevoLugar.mapa}" target="_blank">${nuevoLugar.mapa}</a></p>
       ${filtrosHTML ? `<p><strong>Filtros:</strong><br>${filtrosHTML}</p>` : ''}
+      ${marker ? `<p><strong>marker AR:</strong> <a href="${marker}" target="_blank">${marker}</a></p>` : ''}
+
     `,
     showCancelButton: true,
     confirmButtonText: 'Agregar',
@@ -173,7 +206,15 @@ document.getElementById('archivo-json').addEventListener('change', function (eve
 function limpiarFormulario() {
   document.getElementById('formulario').reset();
   indiceEditando = null;
+
+  // Limpiar los filtros temporales
+  filtrosTemporales = [];
+
+  // Limpiar visualmente los filtros en el formulario
+  const contenedor = document.getElementById('filtros-agregados');
+  if (contenedor) contenedor.innerHTML = '';
 }
+
 
 
 // Descarga los lugares como archivo JSON
@@ -187,7 +228,7 @@ function descargarJSON() {
 function cerrarSesion() {
   localStorage.removeItem('logueado');
   localStorage.getItem('logueado'); // Ahora debería devolver null
-  Swal.fire('Sesión cerrada', 'Has cerrado sesión correctamente.', 'success');  
+  Swal.fire('Sesión cerrada', 'Has cerrado sesión correctamente.', 'success');
   window.location.href = './index.html';
 }
 
@@ -237,6 +278,20 @@ function agregarFiltro() {
   const index = filtrosTemporales.length;
   filtrosTemporales.push({ pais, icono });
 
+  // Agregar este filtro a todos los lugares existentes (si no lo tienen ya)
+  lugares.forEach(lugar => {
+    if (!lugar.filtros) lugar.filtros = [];
+
+    const yaExiste = lugar.filtros.some(f => f.pais === pais && f.icono === icono);
+    if (!yaExiste) {
+      lugar.filtros.push({ pais, icono });
+    }
+  });
+
+  guardarDatos(); // Actualiza localStorage con los nuevos filtros globales
+
+
+
   const contenedor = document.getElementById('filtros-agregados');
   const filtroDiv = document.createElement('div');
   filtroDiv.classList.add('filtro-preview');
@@ -255,10 +310,21 @@ function agregarFiltro() {
 }
 
 function eliminarFiltro(index) {
-  // Eliminar el filtro del array temporal
+  // 1. Eliminar el filtro de filtrosTemporales
+  const filtroEliminado = filtrosTemporales[index];
+  if (!filtroEliminado) return;
+
   filtrosTemporales.splice(index, 1);
 
-  // Volver a renderizar todos los filtros visibles
+  // 2. Eliminar este filtro de todos los lugares (por país e icono)
+  lugares.forEach(lugar => {
+    if (!lugar.filtros) return;
+    lugar.filtros = lugar.filtros.filter(f =>
+      !(f.pais === filtroEliminado.pais && f.icono === filtroEliminado.icono)
+    );
+  });
+
+  // 3. Volver a renderizar los filtros visibles en el formulario
   const contenedor = document.getElementById('filtros-agregados');
   contenedor.innerHTML = '';
   filtrosTemporales.forEach((f, i) => {
@@ -272,6 +338,9 @@ function eliminarFiltro(index) {
     `;
     contenedor.appendChild(div);
   });
+
+  // 4. Guardar en localStorage
+  guardarDatos();
 }
 
 
