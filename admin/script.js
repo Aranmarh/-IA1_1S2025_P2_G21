@@ -229,7 +229,7 @@ function cerrarSesion() {
   localStorage.removeItem('logueado');
   localStorage.getItem('logueado'); // Ahora debería devolver null
   Swal.fire('Sesión cerrada', 'Has cerrado sesión correctamente.', 'success');
-  window.location.href = './index.html';
+  window.location.href = '../index.html';
 }
 
 
