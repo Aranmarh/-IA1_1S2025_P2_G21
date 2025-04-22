@@ -9,16 +9,16 @@ function mostrarAcercaDe() {
                     <th>Nombre</th>
                 </tr>
                 <tr>
-                    <td>12345</td>
-                    <td>Juan Pérez</td>
+                    <td>201408507</td>
+                    <td>Jose Martinez</td>
                 </tr>
                 <tr>
-                    <td>67890</td>
-                    <td>Maria López</td>
+                    <td>202002940</td>
+                    <td>Sebastian Godoy</td>
                 </tr>
                 <tr>
-                    <td>11223</td>
-                    <td>Pedro González</td>
+                    <td>201019694</td>
+                    <td>Henderson Baten</td>
                 </tr>
             </table>
         `,

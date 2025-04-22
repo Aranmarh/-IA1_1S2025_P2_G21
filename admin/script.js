@@ -92,6 +92,7 @@ function eliminarLugar(index) {
 
 
 // Reunir todos los filtros únicos de todos los lugares existentes
+// Reunir todos los filtros únicos de todos los lugares existentes
 const filtrosGlobales = [];
 
 lugares.forEach(lugar => {
@@ -115,6 +116,7 @@ filtrosTemporales.forEach(nuevo => {
 
 
 
+
 // Envía el formulario y agrega un nuevo lugar
 document.getElementById('formulario').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -134,7 +136,7 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
     web,
     mapa,
     marker,
-    filtros: filtrosFinales
+    filtros: filtrosTemporales.slice()
     // copiamos los filtros temporales
   };
 
@@ -278,17 +280,7 @@ function agregarFiltro() {
   const index = filtrosTemporales.length;
   filtrosTemporales.push({ pais, icono });
 
-  // Agregar este filtro a todos los lugares existentes (si no lo tienen ya)
-  lugares.forEach(lugar => {
-    if (!lugar.filtros) lugar.filtros = [];
 
-    const yaExiste = lugar.filtros.some(f => f.pais === pais && f.icono === icono);
-    if (!yaExiste) {
-      lugar.filtros.push({ pais, icono });
-    }
-  });
-
-  guardarDatos(); // Actualiza localStorage con los nuevos filtros globales
 
 
 
@@ -316,13 +308,7 @@ function eliminarFiltro(index) {
 
   filtrosTemporales.splice(index, 1);
 
-  // 2. Eliminar este filtro de todos los lugares (por país e icono)
-  lugares.forEach(lugar => {
-    if (!lugar.filtros) return;
-    lugar.filtros = lugar.filtros.filter(f =>
-      !(f.pais === filtroEliminado.pais && f.icono === filtroEliminado.icono)
-    );
-  });
+
 
   // 3. Volver a renderizar los filtros visibles en el formulario
   const contenedor = document.getElementById('filtros-agregados');
