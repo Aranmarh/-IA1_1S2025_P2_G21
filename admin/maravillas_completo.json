@@ -1,0 +1,310 @@
+[
+  {
+    "nombre": "Tikal",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g1.jpg",
+    "ficha": "Es uno de los mayores yacimientos arqueológicos y centros urbanos de la civilización maya.",
+    "web": "https://es.wikipedia.org/wiki/Tikal",
+    "mapa": "https://www.google.pl/maps/dir//Parque+Nacional+Tikal,+Tikal/@17.2220409,-89.6417239,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8f5fa6cb0262c673:0xdec9c33cf23e1155!2m2!1d-89.6236995!2d17.2220409?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g1.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Semuc Champey",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g2.jpg",
+    "ficha": "Es un monumento natural de pozas de agua turquesa formado por el río Cahabón que pasa por debajo de un puente de roca caliza.",
+    "web": "https://es.wikipedia.org/wiki/Semuc_Champey",
+    "mapa": "https://www.google.com/maps?q=Semuc+Champey&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g2.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Lago de Atitlán",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g3.jpg",
+    "ficha": "Es un lago de origen volcánico rodeado por volcanes y pueblos indígenas, considerado uno de los más bellos del mundo.",
+    "web": "https://es.wikipedia.org/wiki/Lago_de_Atitl%C3%A1n",
+    "mapa": "https://www.google.com/maps?q=Lago+de+Atitl%C3%A1n&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g3.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Antigua Guatemala",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g4.jpg",
+    "ficha": "Es una ciudad colonial declarada Patrimonio de la Humanidad por su arquitectura barroca y ruinas de iglesias coloniales.",
+    "web": "https://es.wikipedia.org/wiki/Antigua_Guatemala",
+    "mapa": "https://www.google.com/maps?q=Antigua+Guatemala&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g4.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Volcán de Agua",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g5.jpg",
+    "ficha": "Es un volcán inactivo que se eleva majestuoso sobre Antigua Guatemala, con 3,760 metros de altura.",
+    "web": "https://es.wikipedia.org/wiki/Volc%C3%A1n_de_Agua",
+    "mapa": "https://www.google.com/maps?q=Volc%C3%A1n+de+Agua&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g5.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Castillo de San Felipe",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g6.jpg",
+    "ficha": "Es una fortaleza construida en la época colonial para proteger el comercio marítimo en el Lago Izabal.",
+    "web": "https://es.wikipedia.org/wiki/Castillo_de_San_Felipe_de_Lara",
+    "mapa": "https://www.google.com/maps?q=Castillo+de+San+Felipe+de+Lara&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g6.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Iximché",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/g7.jpg",
+    "ficha": "Fue la capital del reino kaqchikel, con ruinas precolombinas importantes y altares ceremoniales aún usados.",
+    "web": "https://es.wikipedia.org/wiki/Iximch%C3%A9",
+    "mapa": "https://www.google.com/maps?q=Iximch%C3%A9&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-g7.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Gran Muralla China",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m1.jpg",
+    "ficha": "Es una antigua fortificación china construida para proteger el imperio de las invasiones nómadas del norte.",
+    "web": "https://es.wikipedia.org/wiki/Gran_Muralla_China",
+    "mapa": "https://www.google.com/maps?q=Gran+Muralla+China&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m1.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Petra",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m2.jpg",
+    "ficha": "Es una ciudad arqueológica en Jordania famosa por sus templos y tumbas tallados en piedra rosada.",
+    "web": "https://es.wikipedia.org/wiki/Petra",
+    "mapa": "https://www.google.com/maps?q=Petra,+Jordania&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m2.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Cristo Redentor",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m3.jpg",
+    "ficha": "Es una estatua de Jesucristo de 30 metros de altura ubicada en Río de Janeiro, símbolo del cristianismo.",
+    "web": "https://es.wikipedia.org/wiki/Cristo_Redentor_(R%C3%ADo_de_Janeiro)",
+    "mapa": "https://www.google.com/maps?q=Cristo+Redentor,+R%C3%ADo+de+Janeiro&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m3.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Machu Picchu",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m4.jpg",
+    "ficha": "Es una antigua ciudad inca enclavada en los Andes del Perú, famosa por su arquitectura y entorno natural.",
+    "web": "https://es.wikipedia.org/wiki/Machu_Picchu",
+    "mapa": "https://www.google.com/maps?q=Machu+Picchu&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m4.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Chichén Itzá",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m5.jpg",
+    "ficha": "Es una antigua ciudad maya ubicada en Yucatán, México, reconocida por su pirámide de Kukulkán.",
+    "web": "https://es.wikipedia.org/wiki/Chich%C3%A9n_Itz%C3%A1",
+    "mapa": "https://www.google.com/maps?q=Chich%C3%A9n+Itz%C3%A1&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m5.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Coliseo Romano",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m6.jpg",
+    "ficha": "Es un anfiteatro de la antigua Roma usado para espectáculos como combates de gladiadores y representaciones teatrales.",
+    "web": "https://es.wikipedia.org/wiki/Coliseo_de_Roma",
+    "mapa": "https://www.google.com/maps?q=Coliseo,+Roma,+Italia&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m6.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  },
+  {
+    "nombre": "Taj Mahal",
+    "imagen": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/m7.jpg",
+    "ficha": "Es un mausoleo de mármol blanco construido por el emperador Shah Jahan en honor a su esposa Mumtaz Mahal.",
+    "web": "https://es.wikipedia.org/wiki/Taj_Mahal",
+    "mapa": "https://www.google.com/maps?q=Taj+Mahal,+India&hl=es&gl=gt",
+    "marker": "https://raw.githubusercontent.com/Aranmarh/-IA1_1S2025_P2_G21/refs/heads/develop/ar/pattern-m7.patt",
+    "filtros": [
+      {
+        "pais": "brasil",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png"
+      },
+      {
+        "pais": "india",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png"
+      },
+      {
+        "pais": "guatemala",
+        "icono": "https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png"
+      }
+    ]
+  }
+]
