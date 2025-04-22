@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - TurisAR</title>
+
+  <!-- Fuentes y estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&family=Montserrat&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="home.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="panel">
+    <header>
+        <div class="logo">
+            <img src="../assets/images/OIP.png" alt="Logo">
+        </div>
+        <div class="menu">
+            <button id="home-btn" onclick="window.location.href='../index.html'">Home</button>
+        </div>
+       
+     
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <main>
+      <h1>TurisAR </h1>
+      <h3>IA1 G21</h3>
+
+      <section class="conoce-nuestro-sitio" style="margin-top: 30px;">
+        <h1>Filtros</h1>
+       
+      </section>
+    </main>
+  </div>
+
+  <section class="conoce-nuestro-sitio">
+    <div id="lista-lugares" class="informacion">
+
+    </div>
+
+
+  </section>
+
+
+
+
+  <script src="home.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Esto se ejecuta cuando el HTML ya está cargado completamente
+        const titulo = document.getElementById("titulo");
+        let lugares = JSON.parse(localStorage.getItem('lugares')) || [];
+        let indiceEditando = null;
+        let filtrosTemporales = [];
+        mostrarLugares();
+    });
+  </script>
+</body>
+
+</html>

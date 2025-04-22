@@ -30,20 +30,17 @@
 
       // 1. Texturas por defecto
       let paises = {
-        brasil: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/brasil1.png',
-        india: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/india.png',
-        guatemala: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/maya.png',
-        china: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/china.png',
-        egipto: 'https://raw.githubusercontent.com/Aranmarh/IA1_1S2025_201408507/refs/heads/main/egipto.png',
+       
       };
 
       // 2. Reemplazar desde localStorage si hay datos
       const lugaresJSON = localStorage.getItem('lugares');
+      const index = localStorage.getItem('arreglo');
       if (lugaresJSON) {
         try {
           const lugares = JSON.parse(lugaresJSON);
-          if (Array.isArray(lugares) && lugares.length > 0 && Array.isArray(lugares[0].filtros)) {
-            const filtros = lugares[0].filtros;
+          if (Array.isArray(lugares) && lugares.length > 0 && Array.isArray(lugares[index].filtros)) {
+            const filtros = lugares[index].filtros;
             if (filtros.length > 0) {
               paises = {};
               filtros.forEach(f => {
